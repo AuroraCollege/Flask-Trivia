@@ -7,7 +7,10 @@
     "updateContentCommand": "pip install -r requirements.txt",
     "postCreateCommand": "",
     "postAttachCommand": {
-      "server": "flask --debug run"
+      "server": "python init_db.py && flask --debug run"
+    },
+    "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
     },
     "portsAttributes": {
       "5000": {
