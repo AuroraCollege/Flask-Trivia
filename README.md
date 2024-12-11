@@ -1,6 +1,11 @@
 # Trivia
 This is a simple trivia app for learning the basics of SQL Alchemy.
 
+Work through the following sections in order:
+1. [Walkthrough](#walkthrough)
+2. [Your Task](#your-task)
+3. [Challenge](#challenge)
+
 ## Walkthrough 
 
 Have a look through all the files to get an idea of how it goes together. 
