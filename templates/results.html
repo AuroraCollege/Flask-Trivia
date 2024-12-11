@@ -1,3 +1,4 @@
+<!-- templates/results.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,8 @@
 </head>
 <body>
     <h1>Results</h1>
-    <ul>
-        {% for question, result in results %}
-            <li>{{ question }}: {{ result }}</li>
-        {% endfor %}
-    </ul>
+    <p>Thank you, {{ name }}!</p>
+    <p>Your score: {{ score }}</p>
     <a href="{{ url_for('index') }}">Try Again</a>
 </body>
 </html>

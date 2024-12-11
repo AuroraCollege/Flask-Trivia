@@ -14,3 +14,12 @@ class Question(Base): # Model for the questions table
     choice_c = Column(String, nullable=False)
     choice_d = Column(String, nullable=False)
     correct_answer = Column(String, nullable=False) # The correct answer to the question (a, b, c, or d)
+
+
+
+# Adding a new model for the users table
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    score = Column(Integer, nullable=False)
