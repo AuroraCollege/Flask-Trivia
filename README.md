@@ -1,7 +1,43 @@
-# Trivia [Example Solution]
-This is a basic trivia app for learning the basics of SQL Alchemy.
+# Trivia
+This is a simple trivia app for learning the basics of SQL Alchemy.
 
-Have a look through _all_ the files to get an idea of how it goes together. 
+## Walkthrough 
+
+Have a look through all the files to get an idea of how it goes together. 
+
+### 1. index.html
+Using html and jinja that we're familiar with, this page displays the questions as a form, designed to submit via POST to the url assosiated with the submit route. 
+
+### 2. results.html
+This page lets you know how you did. 
+
+### 3. models.py
+Here we define the `question` class, which extends from the `base` class that we imported (this is an OOP approach). Look at what has been imported here, and see where each bit has been used in defining the structure of a question in our database. 
+
+### 4. init_db.py
+At the top, we import a few tools, as well as the `models` we defined. 
+
+We create the database, add the table, and create a `session` object. This may seem like a lot, but it will become more familiar with time. Read through the code to get an idea of what it does:
+
+```python
+engine = create_engine("sqlite:///questions.sqlite", echo=True) # Create an engine that connects to the database file questions.sqlite
+Base.metadata.create_all(engine) # Create the tables in the database
+Session = sessionmaker(bind=engine) # Create a session class that is bound to the engine
+session = Session() # Create a session object
+```
+
+We then make a list of questions, add them to the session object, and commit our changes.
+
+### 5. app.py
+
+After our imports and defining our app, you'll notice the same boilerplate for linking to the database and creating a session. 
+
+In out routes, we are now using `session.query(Question).all()` to grab all the questions in the `questions` table. 
+
+Everything else is pretty straigtforward. 
+
+Go ahead and run `init_db.py` to create and populate the databse, then fire up your flask app to see if everything is working. 
+
 
 ## Your Task 
 Lets record the score from each attempt and create a high score page. This is not using user accounts or anything fancy - more like a simple pinball-machine stile high schore page.
