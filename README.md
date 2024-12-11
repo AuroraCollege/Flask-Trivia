@@ -70,16 +70,8 @@ Jump into the `models.py` file, and add a new `class` called `User`, that extend
 
 Using the `Question` class as a template, add a `tablename` (users), an `id` column, a `name` column and a `score` column. 
 
-### 3. Migrate the changes to the database
-
-The only change required in the `init_db.py` file is to add `Question` to the models you are importing:
-
-``` python
-from models import Base, Question
-```
-
-### 4. Update app.py
-`app.py` will also need access to the new model:
+### 3. Update app.py
+`app.py` will need access to the new model:
 ```python
 #app.py
 from models import Base, Question, User
@@ -108,7 +100,7 @@ session.add(user)
 session.commit() 
 ```
 
-### 5. Display the results!
+### 4. Display the results!
 Show the results of this attempt by rendering the template:
 
 ```python
