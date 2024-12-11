@@ -1,11 +1,11 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from models import Base, Question
+from sqlalchemy import create_engine # Import the create_engine function from the sqlalchemy module
+from sqlalchemy.orm import sessionmaker # Import the sessionmaker function from the sqlalchemy.orm module
+from models import Base, Question # Import the Base and Question classes from the models module
 
-engine = create_engine("sqlite:///questions.sqlite", echo=True)
-Base.metadata.create_all(engine)
-Session = sessionmaker(bind=engine)
-session = Session()
+engine = create_engine("sqlite:///questions.sqlite", echo=True) # Create an engine that connects to the database file questions.sqlite
+Base.metadata.create_all(engine) # Create the tables in the database
+Session = sessionmaker(bind=engine) # Create a session class that is bound to the engine
+session = Session() # Create a session object
 
 # Add some questions
 questions = [
@@ -35,5 +35,5 @@ questions = [
     )
 ]
 
-session.add_all(questions)
-session.commit()
+session.add_all(questions) # Add the questions to the session
+session.commit() # Commit the changes to the database
