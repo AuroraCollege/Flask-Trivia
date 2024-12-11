@@ -1,18 +1,25 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia App</title>
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask Template
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
-    </div>
+    <h1>Trivia Questions</h1>
+    <form action="{{ url_for('submit') }}" method="post">
+        {% for question in questions %}
+            <div>
+                <p>{{ question.question }}</p>
+                <input type="hidden" name="question_id" value="{{ question.id }}">
+                <input type="radio" name="{{ question.id }}" value="a"> {{ question.choice_a }}<br>
+                <input type="radio" name="{{ question.id }}" value="b"> {{ question.choice_b }}<br>
+                <input type="radio" name="{{ question.id }}" value="c"> {{ question.choice_c }}<br>
+                <input type="radio" name="{{ question.id }}" value="d"> {{ question.choice_d }}<br>
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
 </body>
-
 </html>
